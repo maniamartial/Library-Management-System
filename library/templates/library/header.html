@@ -1,0 +1,70 @@
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+    <style>
+        /* Custom CSS styles */
+        body {
+            margin: 0; /* Remove body margin */
+            padding: 0; /* Remove body padding */
+        }
+
+        .header {
+            background-color: #8B4513; /* Brown background color */
+            padding: 10px;
+            color: #fff;
+            height:100px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px; /* Adjust logo width */
+        }
+
+        .navigation a {
+            font-family: "Helvetica", sans-serif;
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            margin-left: 20px;
+        }
+
+        /* Add dropdown styles */
+        .dropdown-menu {
+            background-color: #8B4513; /* Brown background color for dropdown */
+        }
+
+        .dropdown-item {
+            color: #fff;
+        }
+    </style>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="Logo">
+                </div>
+                <div class="navigation">
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <!-- Add more navigation links here -->
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="accountDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Register</a>
+                            <a class="dropdown-item" href="#">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+{% endblock content %}

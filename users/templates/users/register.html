@@ -1,0 +1,65 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+{% include 'library/header.html' %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Member Registration</h4>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control {% if form.errors.username %}is-invalid{% endif %}" id="username" name="username" required>
+              {% if form.errors.username %}
+                <div class="invalid-feedback">{{ form.errors.username }}</div>
+              {% endif %}
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control {% if form.errors.email %}is-invalid{% endif %}" id="email" name="email" required>
+              {% if form.errors.email %}
+                <div class="invalid-feedback">{{ form.errors.email }}</div>
+              {% endif %}
+            </div>
+
+            <div class="mb-3">
+  <label for="password1" class="form-label">Password</label>
+  <input type="password" class="form-control {% if form.errors.password1 %}is-invalid{% endif %}" id="password1" name="password1" required>
+  {% if form.errors.password1 %}
+    <div class="invalid-feedback">{{ form.errors.password1 }}</div>
+  {% endif %}
+</div>
+<div class="mb-3">
+  <label for="password2" class="form-label">Confirm Password</label>
+  <input type="password" class="form-control {% if form.errors.password2 %}is-invalid{% endif %}" id="password2" name="password2" required>
+  {% if form.errors.password2 %}
+    <div class="invalid-feedback">{{ form.errors.password2 }}</div>
+  {% endif %}
+</div>
+
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input {% if form.errors.terms_condition %}is-invalid{% endif %}" id="terms_condition" name="terms_condition" required>
+              <label class="form-check-label" for="terms_condition">I agree to the terms and conditions</label>
+              {% if form.errors.terms_condition %}
+                <div class="invalid-feedback">{{ form.errors.terms_condition }}</div>
+              {% endif %}
+            </div>
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+          <div class="text-center mt-3">
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
