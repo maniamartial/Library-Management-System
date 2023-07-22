@@ -1,0 +1,20 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+{% include 'library/header.html' %}
+<div class="container mt-5">
+  <h2>Member Details</h2>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_name">Full Name</label>
+      <input type="text" class="form-control" id="id_name" name="name" placeholder="Enter your full name" required>
+    </div>
+    <div class="form-group">
+      <label for="id_national_id">National ID Number</label>
+      <input type="text" class="form-control" id="id_national_id" name="national_id" placeholder="Enter your national ID number" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+{% endblock %}

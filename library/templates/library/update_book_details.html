@@ -1,0 +1,68 @@
+<!-- templates/library/book_update_form.html -->
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Update Book</h2>
+  <form method="post" enctype="multipart/form-data" class="mt-4">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="id_title" class="col-sm-3 col-form-label">Title</label>
+          <div class="col-sm-9">
+            {{ form.title }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="id_author" class="col-sm-3 col-form-label">Author</label>
+          <div class="col-sm-9">
+            {{ form.author }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="id_quantity_in_stock" class="col-sm-3 col-form-label">Quantity in Stock</label>
+          <div class="col-sm-9">
+            {{ form.quantity_in_stock }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="id_publisher" class="col-sm-3 col-form-label">Publisher</label>
+          <div class="col-sm-9">
+            {{ form.publisher }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="id_book_image" class="col-sm-3 col-form-label">Book Image</label>
+          <div class="col-sm-9">
+            {{ form.book_image }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row">
+          <label for="id_document" class="col-sm-3 col-form-label">Document</label>
+          <div class="col-sm-9">
+            {{ form.document }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+{% endblock %}
+

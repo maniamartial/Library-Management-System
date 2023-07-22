@@ -12,18 +12,7 @@ from django.contrib.auth.models import Group
 from .form import CreateUserForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-
-# def member_registration(request):
-#     form = CreateUserForm()
-#     if request.method == "POST":
-#         form = CreateUserForm(request.POST)
-#         if form.is_valid():
-#             user = form.save()
-#             username = form.cleaned_data.get('username')
-#             messages.success(request, "Account created successfully for " + username)
-#             return redirect('login')
-#     context = {'form': form}
-#     return render(request, "users/register.html", context)
+from .form import MemberForm
 
 def member_registration(request):
     form = CreateUserForm()
@@ -66,3 +55,16 @@ def user_login(request):
 
     context = {'next': request.GET.get('next')}
     return render(request, "users/login.html", context)
+
+
+def add_member(request):
+    if request.method == 'POST':
+        form = MemberForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')  # Redirect to a view to display the list of members
+    else:
+        form = MemberForm()
+    
+    return render(request, 'users/member_form.html', {'form': form})
+

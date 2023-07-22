@@ -1,0 +1,85 @@
+<!-- templates/library/create_transaction.html -->
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  /* Custom CSS to style the form */
+  .form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .add-member-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 10px; /* Add some space between the button and the input field */
+  }
+
+  /* Update the style for the form fields */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+</style>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Create Transaction</h2>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <!-- Hidden input field to store the book ID -->
+        <input type="hidden" name="book" value="{{ book.pk }}">
+        <div class="form-group">
+          <label for="id_member_id">Member ID</label>
+          <div class="d-flex align-items-center">
+            {{ form.member }}  <!-- Access the member_id field of the selected member -->
+            <a href="{% url 'add_member' %}" class="add-member-button bi bi-plus" title="Add Member"></a>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_rent_fee">Rent Fee</label>
+          <div>
+            {{ form.rent_fee }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_return_date">Return Date</label>
+          <div>
+            {{ form.return_date }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Transaction</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
