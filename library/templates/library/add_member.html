@@ -1,0 +1,29 @@
+<!-- templates/library/add_member.html -->
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Add New Member</h2>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="id_member_id">Member ID</label>
+          <div>
+            {{ form.member_id }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_name">Name</label>
+          <div>
+            {{ form.name }}
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Add Member</button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

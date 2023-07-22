@@ -1,0 +1,43 @@
+<!-- templates/library/update_transaction.html -->
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Update Transaction</h2>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <div class="form-group">
+          <label for="id_member_name">Member Name</label>
+          <div>
+            {{ form.member_name }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_member_id">Member ID</label>
+          <div>
+            {{ form.member_id }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_rent_fee">Rent Fee</label>
+          <div>
+            {{ form.rent_fee }}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="id_return_date">Return Date</label>
+          <div>
+            {{ form.return_date }}
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary">Update Transaction</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+<!-- templates/library/book_listing.html -->
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+  .book-image-container {
+    position: relative;
+  }
+
+  .quantity-stock-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+    .book-image-container {
+    position: relative;
+    width: 100%; /* Set the desired width for the book image */
+    height: 300px; /* Set the desired height for the book image */
+    overflow: hidden; /* Ensure the image is clipped within the container */
+  }
+
+  .book-image-container img {
+    width: 100%; /* Make the image cover the entire container */
+    height: 100%; /* Make the image cover the entire container */
+    object-fit: cover; /* Maintain aspect ratio while covering the container */
+  }  /* Add some styling to the search form */
+  .search-form {
+    margin-bottom: 20px;
+  }
+</style>
+
+<div class="container mt-5">
+  <h2>All Books</h2>
+  <div class="search-form">
+    <form method="get" class="form-inline">
+      <div class="form-group">
+        <input type="text" name="q" class="form-control mr-2" placeholder="Search by Title or Author">
+      </div>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+  {% if books %}
+  <div class="row">
+    {% for book in books %}
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        <div class="book-image-container position-relative">
+          <img src="{{ book.book_image.url }}" class="card-img-top" alt="{{ book.title }}">
+          <div class="quantity-stock-badge">
+            <span class="badge badge-primary">{{ book.quantity_in_stock }}</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <p class="card-text">Author: {{ book.author }}</p>
+          <p class="card-text">Publisher: {{ book.publisher }}</p>
+        </div>
+        <div class="card-footer">
+  <a href="{% url 'create_transaction' book.id %}" class="btn btn-success btn-sm">Create Transaction</a>
+
+          <a href="{% url 'update_book' book.id %}" class="btn btn-primary btn-sm">Update</a>
+          <a href="{% url 'delete_book' book.id %}" class="btn btn-danger btn-sm">Delete</a>
+        
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>No books available.</p>
+  {% endif %}
+</div>
+
+{% endblock content %}
