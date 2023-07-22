@@ -1,3 +1,5 @@
+
+
 {% extends 'library/base.html' %}
 {% load static %}
 
@@ -6,31 +8,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
 
-    <nav class="navbar navbar-expand-custom navbar-mainbg text-center">
-        <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+
+    <nav class="navbar navbar-expand-custom navbar-mainbg">
+        <a class="navbar-brand navbar-logo" href="{% url 'home' %}">LMS</a>
         <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars text-white"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+             <ul class="navbar-nav ml-auto">
                 <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'home' %};"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'book_listing'%}"><i class="far fa-clone"></i>Books Available</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'add_book' %}"><i class="far fa-address-book"></i>Address Book</a>
+                    <a class="nav-link" href="{% url 'add_book' %}"><i class="far fa-address-book"></i>Add Book</a>
+                </li>
+              
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'book_listing' %}"><i class="far fa-calendar-alt"></i>Calr</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'book_listing'%}"><i class="far fa-clone"></i>Components</a>
+                    <a class="nav-link" href="{% url 'transaction_list' %}"><i class="far fa-chart-bar"></i>Transaction</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'book_listing' %}"><i class="far fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'transaction_list' %}"><i class="far fa-chart-bar"></i>Charts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Debts</a>
                 </li>
             </ul>
         </div>
@@ -56,9 +60,8 @@ i {
 	color: #fff;
 }
 .navbar-mainbg{
-	background-color: transparent;
+	background-color: #5161ce;
 	padding: 0px;
-    color:blue;
 }
 #navbarSupportedContent{
 	overflow: hidden;
@@ -70,24 +73,20 @@ i {
 }
 #navbarSupportedContent ul li a i{
 	margin-right: 10px;
-    color:white;
-    
 }
 #navbarSupportedContent li {
 	list-style-type: none;
 	float: left;
 }
 #navbarSupportedContent ul li a{
-	font-size:20px;
-    color:black;
+	color: rgba(255,255,255,0.5);
     text-decoration: none;
-
+    font-size: 15px;
     display: block;
     padding: 20px 20px;
     transition-duration:0.6s;
 	transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     position: relative;
-
 }
 #navbarSupportedContent>ul>li.active>a{
 	color: #5161ce;
@@ -137,8 +136,23 @@ i {
 .hori-selector .left{
 	left: -25px;
 }
-
-
+.hori-selector .right:before,
+.hori-selector .left:before{
+	content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #5161ce;
+}
+.hori-selector .right:before{
+	bottom: 0;
+    right: -25px;
+}
+.hori-selector .left:before{
+	bottom: 0;
+    left: -25px;
+}
 
 
 @media(min-width: 992px){
