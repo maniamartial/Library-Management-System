@@ -18,7 +18,7 @@
         <th>Transaction ID</th>
         <th>Book Title</th>
         <th>Member Name</th>
-        <th>Member ID</th>
+        <th>National ID</th>
         <th>Issue Date</th>
         <th>Return Date</th>
         <th>Returned</th>
@@ -32,11 +32,11 @@
         <td>{{ transaction.pk }}</td>
         <td>{{ transaction.book.title }}</td>
         <td>{{ transaction.member.name }}</td>
-        <td>{{ transaction.member_id }}</td>
+        <td>{{ transaction.member.member_id }}</td>
         <td>{{ transaction.issue_date }}</td>
         <td>{{ transaction.return_date }}</td>
         <td>{% if transaction.is_returned %}Yes{% else %}No{% endif %}</td>
-        <td>${{ transaction.rent_fee }}</td>
+        <td>Ksh.{{ transaction.rent_fee }}</td>
      <td>
   <a href="{% url 'update_transaction' transaction.pk %}" class="btn btn-primary btn-sm" title="Update">
     <i class="bi bi-pencil"></i>

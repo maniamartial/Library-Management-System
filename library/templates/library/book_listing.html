@@ -57,7 +57,7 @@
           <p class="card-text">Publisher: {{ book.publisher }}</p>
         </div>
         <div class="card-footer">
-  <a href="{% url 'create_transaction' book.id %}" class="btn btn-success btn-sm">Create Transaction</a>
+  <a href="{% url 'create_transaction' book.id %}" class="btn btn-success btn-sm">Lease</a>
 
           <a href="{% url 'update_book' book.id %}" class="btn btn-primary btn-sm">Update</a>
           <a href="{% url 'delete_book' book.id %}" class="btn btn-danger btn-sm">Delete</a>
