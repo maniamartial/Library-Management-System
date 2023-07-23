@@ -5,6 +5,12 @@
 {% block content %}
 <div class="container mt-5">
   <h2 class="text-center mb-4">All Transactions</h2>
+  {% if messages %}
+<div class="alert alert-success">
+  {% for message in messages %} {{ message }} {% endfor %}
+</div>
+{% endif %}
+
   {% if transactions %}
   <table class="table table-striped mt-4">
     <thead>
@@ -25,20 +31,24 @@
       <tr>
         <td>{{ transaction.pk }}</td>
         <td>{{ transaction.book.title }}</td>
-        <td>{{ transaction.member_name }}</td>
+        <td>{{ transaction.member.name }}</td>
         <td>{{ transaction.member_id }}</td>
         <td>{{ transaction.issue_date }}</td>
         <td>{{ transaction.return_date }}</td>
         <td>{% if transaction.is_returned %}Yes{% else %}No{% endif %}</td>
         <td>${{ transaction.rent_fee }}</td>
-        <td>
-          <a href="{% url 'update_transaction' transaction.pk %}" class="btn btn-primary btn-sm" title="Update">
-            <i class="bi bi-pencil"></i>
-          </a>
-          <a href="{% url 'delete_transaction' transaction.pk %}" class="btn btn-danger btn-sm" title="Delete">
-            <i class="bi bi-trash"></i>
-          </a>
-        </td>
+     <td>
+  <a href="{% url 'update_transaction' transaction.pk %}" class="btn btn-primary btn-sm" title="Update">
+    <i class="bi bi-pencil"></i>
+  </a>
+  <a href="{% url 'delete_transaction' transaction.pk %}" class="btn btn-danger btn-sm" title="Delete">
+    <i class="bi bi-trash"></i>
+  </a>
+  <a href="{% url 'return_book' transaction.pk %}" class="btn btn-success btn-sm" title="Return Book">
+    <i class="bi bi-arrow-90deg-left"></i>
+  </a>
+</td>
+
       </tr>
       {% endfor %}
     </tbody>
