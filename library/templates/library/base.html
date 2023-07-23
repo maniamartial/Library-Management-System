@@ -16,9 +16,14 @@
     <!-- Custom CSS styles -->
 
     <link rel="stylesheet" href={% static 'css/home.css'%}/>
+</head>
+<body>
+    <div>
+        {% include 'library/header.html'%}
     {% block content %}
 
     {% endblock content%}
+    </div>
 
     <!-- Link to Bootstrap JS and Popper.js -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

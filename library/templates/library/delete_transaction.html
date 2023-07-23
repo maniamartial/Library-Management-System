@@ -12,7 +12,11 @@
       <div class="col-md-6">
         <button type="submit" class="btn btn-danger btn-block">Delete Transaction</button>
       </div>
+      <div class="col-md-6">
+        <a href="{% url 'transaction_list' %}" class="btn btn-secondary btn-block">Cancel</a>
+      </div>
     </div>
   </form>
 </div>
 {% endblock %}
+

@@ -1,24 +1,55 @@
-<!-- templates/library/update_transaction.html -->
+<!-- templates/library/create_transaction.html -->
 {% extends 'library/base.html' %}
 {% load static %}
 
 {% block content %}
+<style>
+  /* Custom CSS to style the form */
+  .form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+
+
+  /* Update the style for the form fields */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+</style>
+
 <div class="container mt-5">
   <h2 class="text-center mb-4">Update Transaction</h2>
   <form method="post" class="mt-4">
     {% csrf_token %}
     <div class="row justify-content-center">
       <div class="col-md-6 text-center">
-        <div class="form-group">
-          <label for="id_member_name">Member Name</label>
-          <div>
-            {{ form.member_name }}
-          </div>
-        </div>
+        <!-- Hidden input field to store the book ID -->
+        <input type="hidden" name="book" value="{{ book.pk }}">
         <div class="form-group">
           <label for="id_member_id">Member ID</label>
-          <div>
-            {{ form.member_id }}
+          <div class="d-flex align-items-center">
+            {{ form.member }}  <!-- Access the member_id field of the selected member -->
           </div>
         </div>
         <div class="form-group">
@@ -33,9 +64,7 @@
             {{ form.return_date }}
           </div>
         </div>
-        <div class="form-group text-center">
-          <button type="submit" class="btn btn-primary">Update Transaction</button>
-        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Transaction</button>
       </div>
     </div>
   </form>

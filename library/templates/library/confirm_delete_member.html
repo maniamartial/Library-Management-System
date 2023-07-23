@@ -1,0 +1,15 @@
+<!-- templates/library/delete_member.html -->
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+  <h2>Confirm Member Deletion</h2>
+  <p>Are you sure you want to delete the member with ID: {{ member.member_id }} and Name: {{ member.name }}?</p>
+  <form method="post" class="mt-4">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete Member</button>
+    <a href="{% url 'members_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% endblock %}
