@@ -16,13 +16,17 @@
     <!-- Custom CSS styles -->
 
     <link rel="stylesheet" href={% static 'css/home.css'%}/>
+    <link rel="stylesheet" href={% static 'css/header.css' %}/>
 </head>
 <body>
     <div>
         {% include 'library/header.html'%}
+        <div style="min-height:500px">
     {% block content %}
 
     {% endblock content%}
+        </div>
+    {% include 'library/footer.html' %}
     </div>
 
     <!-- Link to Bootstrap JS and Popper.js -->
@@ -37,5 +41,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet">
+<script src={% static 'js/header.js' %}/>
 </body>
 </html>
