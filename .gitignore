@@ -2,3 +2,4 @@
 LMS/__pycache__/
 users/__pycache__/
 library/__pycache__/
+gunicorn
