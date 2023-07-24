@@ -48,7 +48,7 @@ def user_login(request):
             if next_url:
                 return redirect(next_url)
             else:
-                return redirect(reverse('home'))
+                return redirect(reverse('book_listing'))
         else:
             messages.error(request, 'Username or Password is incorrect')
             logger.error(f"Failed login attempt for user: {username}")
@@ -62,7 +62,7 @@ def add_member(request):
         form = MemberForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('book_list')  # Redirect to a view to display the list of members
+            return redirect('book_listing')  # Redirect to a view to display the list of members
     else:
         form = MemberForm()
     
