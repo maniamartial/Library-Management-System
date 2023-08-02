@@ -64,13 +64,12 @@
           <p class="card-text">Author: {{ book.author }}</p>
           <p class="card-text">Publisher: {{ book.publisher }}</p>
         </div>
-        <div class="card-footer">
+        <div class="card-footer d-flex justify-content-between">
           <a
             href="{% url 'create_transaction' book.id %}"
             class="btn btn-success btn-sm"
             >Lease</a
           >
-
           <a
             href="{% url 'update_book' book.id %}"
             class="btn btn-primary btn-sm"
