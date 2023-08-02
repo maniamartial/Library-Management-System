@@ -1,8 +1,5 @@
 <!-- templates/library/book_listing.html -->
-{% extends 'library/base.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'library/base.html' %} {% load static %} {% block content %}
 <style>
   .book-image-container {
     position: relative;
@@ -13,18 +10,18 @@
     top: 10px;
     right: 10px;
   }
-    .book-image-container {
+  .book-image-container {
     position: relative;
-    width: 100%; /* Set the desired width for the book image */
-    height: 300px; /* Set the desired height for the book image */
-    overflow: hidden; /* Ensure the image is clipped within the container */
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
   }
 
   .book-image-container img {
-    width: 100%; /* Make the image cover the entire container */
-    height: 100%; /* Make the image cover the entire container */
-    object-fit: cover; /* Maintain aspect ratio while covering the container */
-  }  /* Add some styling to the search form */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  } /* Add some styling to the search form */
   .search-form {
     margin-bottom: 20px;
   }
@@ -35,7 +32,12 @@
   <div class="search-form">
     <form method="get" class="form-inline">
       <div class="form-group">
-        <input type="text" name="q" class="form-control mr-2" placeholder="Search by Title or Author">
+        <input
+          type="text"
+          name="q"
+          class="form-control mr-2"
+          placeholder="Search by Title or Author"
+        />
       </div>
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
@@ -46,9 +48,15 @@
     <div class="col-md-3 mb-4">
       <div class="card">
         <div class="book-image-container position-relative">
-          <img src="{{ book.book_image.url }}" class="card-img-top" alt="{{ book.title }}">
+          <img
+            src="{{ book.book_image.url }}"
+            class="card-img-top"
+            alt="{{ book.title }}"
+          />
           <div class="quantity-stock-badge">
-            <span class="badge badge-primary">{{ book.quantity_in_stock }}</span>
+            <span class="badge badge-primary"
+              >{{ book.quantity_in_stock }}</span
+            >
           </div>
         </div>
         <div class="card-body">
@@ -57,11 +65,22 @@
           <p class="card-text">Publisher: {{ book.publisher }}</p>
         </div>
         <div class="card-footer">
-  <a href="{% url 'create_transaction' book.id %}" class="btn btn-success btn-sm">Lease</a>
+          <a
+            href="{% url 'create_transaction' book.id %}"
+            class="btn btn-success btn-sm"
+            >Lease</a
+          >
 
-          <a href="{% url 'update_book' book.id %}" class="btn btn-primary btn-sm">Update</a>
-          <a href="{% url 'delete_book' book.id %}" class="btn btn-danger btn-sm">Delete</a>
-        
+          <a
+            href="{% url 'update_book' book.id %}"
+            class="btn btn-primary btn-sm"
+            >Update</a
+          >
+          <a
+            href="{% url 'delete_book' book.id %}"
+            class="btn btn-danger btn-sm"
+            >Delete</a
+          >
         </div>
       </div>
     </div>

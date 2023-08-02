@@ -1,126 +1,98 @@
-        /* Custom CSS styles */
-        body {
-            margin: 0;
-            /* Remove body margin */
-            padding: 0;
-            /* Remove body padding */
-        }
+/* Custom CSS styles */
+body {
+  margin: 0;
+  /* Remove body margin */
+  padding: 0;
+  /* Remove body padding */
+}
 
-        .header {
-            color: #fff;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 10px;
-            z-index: 1;
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Reduce header background opacity */
-        }
+/* Position the logo and navigation elements */
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
 
-        .slider {
-            width: 100%;
-            height: calc(100vh - 20px);
-            /* Adjust height to fill the remaining viewport space */
-            overflow: hidden;
-            position: relative;
-        }
+.navigation {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
 
-        .carousel-inner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-            /* Reduce image opacity to make the header more visible */
-        }
+.navigation a {
+  font-family: "Helvetica", sans-serif;
+  font-size: 24px;
+  text-decoration: none;
+  margin-left: 20px;
+  /* Add left margin to create spacing between links */
+  color: #fff;
+  /* Set the text color to white */
+}
 
-        /* Position the logo and navigation elements */
-        .logo {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
+/* Add dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-        .navigation {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
 
-        .navigation a {
-            font-family: "Helvetica", sans-serif;
-            font-size: 24px;
-            text-decoration: none;
-            margin-left: 20px;
-            /* Add left margin to create spacing between links */
-            color: #fff;
-            /* Set the text color to white */
-        }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-        /* Add dropdown styles */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+/* Center the call-to-action button */
+.centered-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: blue;
+  color: white;
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
+.centered-btn:hover {
+  background-color: white;
+  color: blue;
+}
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+/* Fix the slider not working */
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+  background-color: rgba(255, 255, 255, 0.5);
+  /* Make controls semi-transparent */
+  color: #000;
+  /* Set control color */
+  cursor: pointer;
+}
 
-        /* Center the call-to-action button */
-        .centered-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: blue;
-            color: white;
-            padding: 12px 24px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-        }
+/* Set control icon size */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
 
-        .centered-btn:hover {
-            background-color: white;
-            color: blue;
-        }
-
-        /* Fix the slider not working */
-        .carousel-control-prev,
-        .carousel-control-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 5%;
-            background-color: rgba(255, 255, 255, 0.5);
-            /* Make controls semi-transparent */
-            color: #000;
-            /* Set control color */
-            cursor: pointer;
-        }
-
-        /* Set control icon size */
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Hide the controls on hover (show only on carousel hover) */
-        .carousel:hover .carousel-control-prev,
-        .carousel:hover .carousel-control-next {
-            display: flex;
-        }
+/* Hide the controls on hover (show only on carousel hover) */
+.carousel:hover .carousel-control-prev,
+.carousel:hover .carousel-control-next {
+  display: flex;
+}

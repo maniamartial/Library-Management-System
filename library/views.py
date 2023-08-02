@@ -191,7 +191,7 @@ def delete_member(request, member_id):  # Use 'member_id' here to match the URL 
 
 
 
-#Return teh book
+#Return the book
 def mark_transaction_returned(transaction_id):
     # Get the transaction using the provided transaction_id
     transaction = get_object_or_404(Transaction, pk=transaction_id)
