@@ -1,52 +1,71 @@
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-
-  <nav class="navbar navbar-expand-custom navbar-mainbg">
-    <a class="navbar-brand navbar-logo" href="{% url 'book_listing' %}">LMS</a>
-    <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars text-white"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-            <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-            <li class="nav-item">
-                <a class="nav-link active" href="{% url 'book_listing' %}"><i class="fas fa-book"></i>Books Available</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'add_book' %}"><i class="fas fa-plus"></i>Add Book</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'transaction_list' %}"><i class="fas fa-list-alt"></i>Transactions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'members_list' %}"><i class="fas fa-users"></i>Members</a>
-            </li>
-			<li class="nav-item">
-                <a class="nav-link" href="{% url 'add_member' %}"><i class="fas fa-plus"></i>Add Member</a>
-            </li>
-			{% if request.user.is_authenticated %}
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-user"></i>{{ request.user.username }}</a>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a>
-                </li>
-            {% endif %}
-        </ul>
-    </div>
+<nav
+  class="navbar navbar-expand-lg navbar-dark"
+  style="background-color: #5161ce"
+>
+  <a class="navbar-brand navbar-logo" href="{% url 'book_listing' %}">LMS</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <div class="hori-selector">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'book_listing' %}"
+          ><i class="fas fa-book"></i>Books Available</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'add_book' %}"
+          ><i class="fas fa-plus"></i>Add Book</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'transaction_list' %}"
+          ><i class="fas fa-list-alt"></i>Transactions</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'members_list' %}"
+          ><i class="fas fa-users"></i>Members</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'add_member' %}"
+          ><i class="fas fa-plus"></i>Add Member</a
+        >
+      </li>
+      {% if request.user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link" href="#"
+          ><i class="fas fa-user"></i>{{ request.user.username }}</a
+        >
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}"
+          ><i class="fas fa-sign-in-alt"></i>Login</a
+        >
+      </li>
+      {% endif %}
+    </ul>
+  </div>
 </nav>
-
-
-
-    <style>
-    </style>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-   
-
-
-
-
-
